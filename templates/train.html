@@ -1,0 +1,117 @@
+
+{% include "home.html" %}
+
+{% block body %}
+<div class="content">
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: blue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+</style>
+</head>
+<body>
+
+<h2>Dataset</h2>
+<a href="/train_employee" class="button" style="float: right;">Batch Train</a>
+
+<table>
+  
+    <tr>Registered Users</tr>
+  
+  {% for row in row %}
+  <tr>
+    <td>{{row.name}}</td>
+    <td>
+      <div class="input-container">
+        <form method="POST" action="./view">
+          <input type="hidden" value="{{row.id}}" name="id">
+          <input type="submit" class="button" value="View" style="float: right;">
+        </form>
+
+        <form method="POST" action="./updateImages">
+          <input type="hidden" value="{{row.id}}" name="id">
+          <input type="hidden" value="{{row.name}}" name="name">
+          <input type="submit" class="button2" value="Add" style="float: right;">
+        </form>
+
+        <form method="POST" action="./deleteUser">
+                <input type="hidden" value="{{row.id}}" name="id">
+                <input type="hidden" value="{{row.datapath}}" name="path">
+                <input type="submit" class="button1" value="Delete" style="float: right;">
+        </form>
+  </td>
+</div>
+</tr>
+
+  {% endfor %}
+
+</table>
+</body>
+</html>
+
+</div>
+
+{% endblock %}

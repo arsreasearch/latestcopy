@@ -1,0 +1,62 @@
+
+{% include "header.html" %}
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  position: absolute;
+  left: 500px;
+  top: 130px;
+  z-index: -1;
+}
+
+</style>
+</head>
+<body>
+{% for row in row %}
+
+      <h1>{{row.id}}<h1>
+      <h1>{{row.name}}<h1>
+      <h1>{{row.status}}<h1>
+
+  </div>
+</div>
+{% endfor %}
+
+
+</body>
+
+{% endblock %}
+
+
+

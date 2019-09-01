@@ -1,0 +1,87 @@
+
+{% include "home.html" %}
+{% include "js.html" %}
+
+{% block body %}
+<div class="w3-container">
+
+
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result').text(data.result);
+        console.log(data)
+      });
+      
+    };
+   
+</script>
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+<style>
+.button1 {
+  background-color: green; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+
+}
+
+
+</style>
+</head>
+<body onload="update_values();">
+
+
+<div class="row">
+  <div class="column">
+    <img src="{{ url_for('calc') }}"  height= "600" width ="800">
+  </div>
+  <div class="column" >
+    <center> <h1><strong><span id="result">?</span></strong> <h1>
+    <button class="button1">Login</button>
+    </center>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+<script>
+document.getElementById("result").innerHTML;
+</script>
+
+
+	</body>
+</div>
+{% endblock %}
+
+
+
